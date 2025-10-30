@@ -1,9 +1,6 @@
 # proyecto-AA
 
 # Desencriptador de clave usando ordenamiento por inserción
-import ipywidgets as widgets
-from IPython.display import display, clear_output
-
 import time
 
 def ordenar_insercion(clave):

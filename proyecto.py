@@ -1,6 +1,8 @@
 # proyecto-AA
 
 # Desencriptador de clave usando ordenamiento por inserción
+import ipywidgets as widgets
+from IPython.display import display, clear_output
 
 def ordenar_insercion(clave):
     """Ordena una lista de números usando el algoritmo de inserción."""
@@ -13,26 +15,35 @@ def ordenar_insercion(clave):
         clave[j + 1] = actual
     return clave
 
-if __name__ == "__main__":
-    print(" Desencriptador de clave telefónica\n"
-    # Solicitar clave desde la terminal
-    entrada = input("Ingresa tu clave desordenada")
+# --- Widgets ---
+titulo = widgets.HTML("<h3>🔐 Desencriptador de Clave Telefónica</h3>")
+entrada = widgets.Text(
+    description="Clave:",
+    placeholder="Ejemplo: 9 3 1 5 2",
+    layout=widgets.Layout(width="50%")
+)
+boton = widgets.Button(description="Desencriptar", button_style="info")
+salida = widgets.Output()
 
-  # Convertir la entrada en lista de enteros
-   try:
-        clave_codificada = [int(x) for x in entrada.split()]
-    except ValueError:
-        print(" Error: Asegúrate de ingresar solo números separados por espacios.")
-        exit()
+# --- Lógica al presionar el botón ---
+def desencriptar(b):
+    with salida:
+        clear_output()
+        texto = entrada.value.strip()
+        if not texto:
+            print("⚠️ No ingresaste ningún número. Intenta nuevamente.")
+            return
+        try:
+            clave_codificada = [int(x) for x in texto.split()]
+        except ValueError:
+            print("❌ Error: ingresa solo números separados por espacios.")
+            return
+        
+        clave_desencriptada = ordenar_insercion(clave_codificada.copy())
+        print(f"Clave codificada: {clave_codificada}")
+        print(f"✅ Clave desencriptada: {''.join(map(str, clave_desencriptada))}")
 
-  if not clave_codificada:
-        print(" No ingresaste ningún número. Intenta nuevamente.")
-        exit()
+boton.on_click(desencriptar)
 
-   print(f"\nClave codificada: {clave_codificada}")
-
-   # Desencriptar clave
-   
-clave_desencriptada = ordenar_insercion(clave_codificada.copy())
-    # Mostrar resultado
-    print(f"Clave desencriptada: {''.join(map(str, clave_desencriptada))}")
+# --- Mostrar todo ---
+display(titulo, entrada, boton, salida)

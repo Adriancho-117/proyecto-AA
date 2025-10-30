@@ -31,12 +31,12 @@ def desencriptar(b):
         clear_output()
         texto = entrada.value.strip()
         if not texto:
-            print("⚠️ No ingresaste ningún número. Intenta nuevamente.")
+            print("No ingresaste ningún número. Intenta nuevamente.")
             return
         try:
             clave_codificada = [int(x) for x in texto.split()]
         except ValueError:
-            print("❌ Error: ingresa solo números separados por espacios.")
+            print(" Error: ingresa solo números separados por espacios.")
             return
         
         clave_desencriptada = ordenar_insercion(clave_codificada.copy())

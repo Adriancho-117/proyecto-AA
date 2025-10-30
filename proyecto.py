@@ -41,7 +41,7 @@ def desencriptar(b):
         
         clave_desencriptada = ordenar_insercion(clave_codificada.copy())
         print(f"Clave codificada: {clave_codificada}")
-        print(f"✅ Clave desencriptada: {''.join(map(str, clave_desencriptada))}")
+        print(f"lave desencriptada: {''.join(map(str, clave_desencriptada))}")
 
 boton.on_click(desencriptar)
 

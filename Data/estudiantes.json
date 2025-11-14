@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ana",
+        "edad": 20,
+        "promedio": 4.5,
+        "semestre": 3
+    },
+    {
+        "id": 2,
+        "nombre": "Carlos",
+        "edad": 22,
+        "promedio": 4.8,
+        "semestre": 5
+    },
+    {
+        "id": 3,
+        "nombre": "Luis",
+        "edad": 19,
+        "promedio": 3.9,
+        "semestre": 2
+    }
+]

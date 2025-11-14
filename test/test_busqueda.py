@@ -21,3 +21,4 @@ def test_insertion_sort_simple():
 
 def test_quicksort_simple():
     assert quicksort(lista_simple) == [1, 3, 5, 9]
+
